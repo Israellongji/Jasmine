@@ -54,7 +54,7 @@ export const QuestionView: React.FC<QuestionViewProps> = ({ onYes, onNo, onBack 
     <div className="w-full max-w-4xl h-[600px] flex flex-col items-center justify-center">
       <div 
         ref={containerRef}
-        className="relative w-full h-full bg-white/60 backdrop-blur-md rounded-3xl shadow-xl border-2 border-white overflow-hidden flex flex-col items-center"
+        className="relative w-full h-full bg-white/60 backdrop-blur-md rounded-3xl shadow-xl border-2 border-white overflow-hidden flex flex-col items-center justify-center"
       >
         {/* Header */}
         <div className="absolute top-0 left-0 w-full p-4 flex justify-between items-center z-20">
@@ -67,7 +67,7 @@ export const QuestionView: React.FC<QuestionViewProps> = ({ onYes, onNo, onBack 
         </div>
 
         {/* Content */}
-        <div className="mt-20 text-center z-10 px-4 pointer-events-none">
+        <div className="text-center z-10 px-4 pointer-events-none flex flex-col items-center">
           <div className="relative inline-block">
             <img 
               src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NGFjMTRtcTBycjdheTJ4M2xpeTM2MDRnMHZqb3c4bmtqbXdsNDJqZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1xncdvMFWF0OlP3O9b/giphy.gif" 
@@ -80,23 +80,22 @@ export const QuestionView: React.FC<QuestionViewProps> = ({ onYes, onNo, onBack 
           <h2 className="text-4xl md:text-5xl font-extrabold text-rose-600 mb-6 drop-shadow-sm">
             Will you be my Valentine?
           </h2>
-          <p className="text-xl text-rose-800/80 mb-12 font-medium">
+          <p className="text-xl text-rose-800/80 mb-8 font-medium">
             You gotta say yes!  🌚
           </p>
+
+          <div className="pointer-events-auto">
+            <button
+                onClick={onYes}
+                className="px-12 py-4 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-full shadow-lg hover:shadow-green-500/30 hover:scale-110 transition-all duration-300 transform"
+            >
+                YES! 💖
+            </button>
+          </div>
         </div>
 
         {/* Buttons Area */}
         <div className="w-full h-full absolute top-0 left-0 pointer-events-none">
-            {/* Yes Button - Fixed Centered (technically absolute positioned relative to container for easier layout mix) */}
-            <div className="absolute top-[65%] left-1/2 transform -translate-x-1/2 pointer-events-auto">
-                <button
-                    onClick={onYes}
-                    className="px-12 py-4 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-full shadow-lg hover:shadow-green-500/30 hover:scale-110 transition-all duration-300 transform"
-                >
-                    YES! 💖
-                </button>
-            </div>
-
             {/* No Button - Floating */}
             <div 
                 className="absolute transition-all duration-700 ease-in-out pointer-events-auto"
